@@ -19,7 +19,7 @@ import java.util.Map;
  * @author xieren8iao
  * @create 2019/3/27 - 20:10
  */
-@WebServlet("/user/*")
+@WebServlet("/user/*")    // /user/add  /user/find
 public class UserServlet extends BaseServlet {
     //业务对象
     private UserService service=new UserServiceImpl();

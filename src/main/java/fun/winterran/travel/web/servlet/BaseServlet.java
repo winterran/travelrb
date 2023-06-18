@@ -19,12 +19,13 @@ import java.lang.reflect.Method;
 
 public class BaseServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //获取访问的路径
-        String uri=request.getRequestURI();
-        //获取方法名
-        String methodName = uri.substring(uri.lastIndexOf('/') + 1);
-        //this代表调用方法的类
-//        调用方法
+        //完成方法分发 /user/add  /user/find
+        //1.获取请求/访问的路径
+        String uri=request.getRequestURI();  // /user/add
+        //2.获取方法名称
+        String methodName = uri.substring(uri.lastIndexOf('/') + 1);  // 截取 /user/add 中的add
+        //3.获取方法对象Method，this代表调用方法的类
+        //4.调用/执行方法
         try {
             Method method = this.getClass().getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);            method.invoke(this, request,response);
         } catch (NoSuchMethodException e) {

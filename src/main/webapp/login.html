@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>黑马旅游网-登录</title>  
+    <title>黑马旅游网-登录</title>
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -21,15 +21,17 @@
 
 	<script>
 		$(function () {
-			//给登陆按钮绑定事件
+			//1.给登陆按钮绑定单击事件
 			$("#login").click(function () {
-				//使用ajax异步提交数据
+				//2.发送ajax请求，异步提交表单数据
 				$.post("user/login",$("#loginForm").serialize(),function (data) {
-					//处理返回来的结果
+					//data:{flag:false,errorMsg:''}
+					//3.处理返回来的结果
 					if(data.flag){
 						// 登陆成功
 						location.href="index.html";
 					}else {
+						// 登录失败
 						$("#errorMsg").html(data.errorMsg);
 						document.getElementById("img1").src="checkCode?"+new Date().getTime();
 					}
@@ -46,7 +48,7 @@
     <!-- 头部 end -->
     <section id="login_wrap">
         <div class="fullscreen-bg" style="background: url(images/login_bg.png);height: 532px;">
-        	
+
         </div>
         <div class="login-box">
         	<div class="title">
@@ -54,7 +56,7 @@
         		<span>欢迎登录黑马旅游账户</span>
         	</div>
         	<div class="login_inner">
-				
+
 				<!--登录错误提示消息-->
         		<div id="errorMsg" class="alert alert-danger" ></div>
 				<form id="loginForm" action="" method="post" accept-charset="utf-8">
@@ -76,8 +78,8 @@
         				<div class="auto_login">
         					<input type="checkbox" name="" class="checkbox">
         					<span>自动登录</span>
-        				</div>        				
-        			</div>        			       		
+        				</div>
+        			</div>
         		</form>
         		<div class="reg">没有账户？<a href="javascript:;">立即注册</a></div>
         	</div>
