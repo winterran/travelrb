@@ -4,7 +4,7 @@
          version="3.0">
        <!-- <servlet>
             <servlet-name>check</servlet-name>
-            <servlet-class>cn.itcast.travel.web.servlet.CheckCodeServlet</servlet-class>
+            <servlet-class>CheckCodeServlet</servlet-class>
         </servlet>
         <servlet-mapping>
             <servlet-name>check</servlet-name>
